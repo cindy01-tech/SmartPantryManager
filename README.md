@@ -2,7 +2,7 @@
 
 ## 1. Application Description
 
-Smart Pantry Manager is a Java-based Android application developed for Mobile App Development.
+Smart Pantry Manager is a Java-based Android application developed for the Mobile App Development 700 practical assignment.
 
 The application helps users reduce food waste by keeping track of ingredients available in their pantry and suggesting recipes that can be prepared using only the ingredients they already have.
 
@@ -15,7 +15,7 @@ The main business rule of the application is **strict recipe matching**. A recip
 * Edit existing pantry ingredients
 * Delete pantry ingredients
 * Store ingredient quantity, unit and optional expiry date
-* Display pantry items using a RecyclerView
+* Display pantry items using RecyclerView
 * Store a collection of pre-loaded recipes
 * Suggest recipes based on the user's current pantry
 * Handle simple singular/plural ingredient differences
@@ -29,7 +29,8 @@ The main business rule of the application is **strict recipe matching**. A recip
 * **Programming Language:** Java
 * **IDE:** Android Studio
 * **Platform:** Android
-* **Minimum Android Version:** Android API 26+
+* **Minimum Android Version:** Android API 24
+* **Recommended API Level:** Android API 26 or higher
 * **Database:** SQLite
 * **Database API:** SQLiteOpenHelper
 * **UI:** Android XML layouts
@@ -37,15 +38,23 @@ The main business rule of the application is **strict recipe matching**. A recip
 * **Navigation:** Android Intents
 * **Version Control:** Git and GitHub
 
-## 3. Database Choice
+## 3. Database Design
 
-SQLite was selected because the application is designed to work with the user's own pantry data directly on the Android device.
+The application uses a local SQLite database named `smart_pantry.db`.
 
-SQLite provides local persistent storage without requiring an internet connection, external servers, Firebase configuration or an external API. It is also suitable for demonstrating the database concepts covered in the Mobile App Development module.
+The database contains three main tables:
 
-The application uses SQLiteOpenHelper to create and manage the local database.
+* **pantry_items** — stores ingredients available in the user's pantry.
+* **recipes** — stores the pre-loaded recipe names and preparation instructions.
+* **recipe_ingredients** — stores the ingredients, quantities and units required by each recipe.
 
-The database stores pantry items as well as the application's recipe collection and recipe ingredients.
+The recipe ingredients table is associated with the recipes table using the recipe ID.
+
+SQLite was selected because the application is designed to work with the user's pantry data directly on the Android device.
+
+SQLite provides local persistent storage without requiring an internet connection, external servers, Firebase configuration or external API services. It is also suitable for demonstrating the database concepts covered in the Mobile App Development module.
+
+The application uses `SQLiteOpenHelper` to create and manage the local database.
 
 ## 4. Application Structure
 
@@ -60,6 +69,8 @@ The main screens of the application include:
 7. Settings
 
 The application uses Android Activities and Intents to navigate between these screens.
+
+RecyclerView and custom adapters are used to display pantry items and suggested recipes.
 
 ## 5. Strict Recipe Matching
 
@@ -90,7 +101,7 @@ This ensures that the application follows the requirement that users should not 
 
 1. Clone the repository from GitHub.
 2. Open the project in Android Studio.
-3. Allow Android Studio to synchrozise the Gradle project.
+3. Allow Android Studio to synchronise the Gradle project.
 4. Connect an Android device or start an Android emulator.
 5. Build the project.
 6. Run the application from Android Studio.
@@ -98,10 +109,12 @@ This ensures that the application follows the requirement that users should not 
 
 ### GitHub Repository
 
-https://github.com/cindy01-tech/SmartPantryManager
+Repository name: **SmartPantryManager**
+
+GitHub account: **cindy01-tech**
 
 ## 7. Project Purpose
 
-The purpose of Smart Pantry Manager is to demonstrate the practical use of Android development concepts including Activities, Intents, layouts, RecyclerView adapters, input validation and persistent database storage while solving a practical food-waste problem.
+The purpose of Smart Pantry Manager is to demonstrate the practical use of Android development concepts including Activities, Intents, XML layouts, RecyclerView adapters, input validation and persistent database storage while solving a practical food-waste problem.
 
-The application was developed as an individual practical project for Mobile App Development.
+The application was developed as an individual practical project for Mobile App Development 700.
